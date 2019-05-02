@@ -1,0 +1,315 @@
+:root {
+   --background: rgba(0, 214, 170, .85);
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    
+}
+body{
+    margin: 0;
+    font-family: sans-serif;
+    font-weight: 400;
+    background: url(pic1.jpg);
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+
+
+}
+#pinkHeader {
+    background-color: pink;
+}
+
+
+header{
+    background: var(--background);
+    text-align: center;
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+}
+.nav-toggle {
+    display: none;
+
+}
+.nav-toggle-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: 1em;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+    display: block;
+    background: white;
+    height: 2px;
+    width: 2em;
+    border-radius: 2px;
+    position: relative;
+
+}
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+    content: '';
+    position: absolute;
+
+}
+.nav-toggle-label span::before{
+    bottom: 7px;
+}
+.nav-toggle-label span::after {
+    top: 7px;
+}
+nav {
+    position: absolute;
+    text-align: left;
+    top: 100%;
+    left: 0;
+    background: var(--background);
+    width: 100%;
+    transform: scale(1,0);
+    transform-origin: top;
+    transition: 400ms ease-in-out;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+nav li {
+    margin-bottom: 1em;
+    margin-left: 1em;
+}
+nav a {
+    color: blueviolet;
+    text-decoration: none;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    opacity: 0;
+    transition: opacity 150ms ease-in-out;
+}
+nav a:hover {
+    color: #000;
+}
+.nav-toggle:checked ~ nav {
+    transform: scale(1,1)
+}
+.nav-toggle:checked ~ nav a {
+    opacity: 1;
+    transition: opacity 250ms ease-in-out 250ms;
+}
+.wrapper {
+    position: absolute;
+    left: 20px;
+    top: 85px;
+}
+.contact-title {
+    width: 100%;
+    position: absolute;
+    margin-top: 100px;
+    margin-left: 10px;
+    color: #fff;
+    text-transform: uppercase;
+    transition: all 4s ease-in-out;
+}
+.contact-title h1 {
+    font-size: 32px;
+    line-height: 10px;
+}
+.contact-title h2{
+    font-size: 16px;
+}
+
+
+button {
+    height: 40px;
+    width: 120px;
+    font-size: 15px;
+}
+.contact-form {
+    position: absolute;;
+    width: 100%;
+    margin-top: 170px;
+
+}
+form {
+    margin: 50px;
+    transition: all 4s ease-in-out;
+}
+.form-control {
+    width: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid gray;
+    color: #fff;
+    font-size: 18px;
+    margin-bottom: 16px;
+}
+input {
+    height: 45px;
+}
+form .submit {
+    background: #ff5722;
+    border-color: transparent;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    height: 50px;
+    margin-top: 20px;
+}
+form .submit:hover {
+    background: #f44336;
+    cursor: pointer;
+}
+.bio {
+    width: 100%;
+    position: absolute;
+    top: 100px;
+    color: #fff;
+    padding: 10px;
+}
+.check {
+    position: absolute;
+    top: 80px;
+    color: rgba(218, 240, 27, 0.85);
+    display: inline-block;
+    font-weight: bold;
+    left: 10px;
+}
+.check p {
+    float: right;
+}
+@media screen and (min-width: 600px) {
+    .nav-toggle-label {
+        display: none;
+    }
+    header {
+        display: grid;
+        grid-template-columns: 1fr auto minmax(600px, 3fr) 1fr;
+    }
+    .logo {
+        grid-column: 2 / span 1;
+    }
+    nav {
+        all: unset;
+        grid-column: 3 / 4;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+    nav ul {
+        display: flex;
+        
+    }
+    nav li {
+        margin-left: 3em;
+        margin-bottom: 0;
+    }
+    nav a {
+        opacity: 1;
+        position: relative;
+    }
+    nav a::before {
+        content: '';
+        display: block;
+        height: 5px;
+        background: #000;
+        position: absolute;
+        top: -.75em;
+        left: 0;
+        right: 0;
+        transform: scale(0, 1);
+        transform-origin: left;
+        transition: transform ease-in-out 250ms;
+
+    }
+    nav a:hover::before {
+        transform: scale(1,1);
+    }
+    body {
+        text-align: center;
+        background: url(pic1.jpg);
+        background-size: cover;
+        background-position: center;
+    }
+    .contact-title {
+        text-align: center;
+        width: 100%;
+        position: absolute;
+        top: 80px;
+        color: #fff;
+        text-transform: uppercase;
+        transition: all 4s ease-in-out;
+    }
+    .contact-title h1 {
+        font-size: 32px;
+        line-height: 10px;
+    }
+    .contact-title h2{
+        font-size: 16px;
+    }
+    .contact-form {
+        position: absolute;;
+        width: 100%;
+        margin-top: 250px;
+    
+    }
+    form {
+        margin: 50px;
+        transition: all 4s ease-in-out;
+    }
+    .form-control {
+        width: 600px;
+        background: transparent;
+        border: none;
+        outline: none;
+        border-bottom: 1px solid gray;
+        color: #fff;
+        font-size: 18px;
+        margin-bottom: 16px;
+    }
+    input {
+        height: 45px;
+    }
+    form .submit {
+        background: #ff5722;
+        border-color: transparent;
+        color: #fff;
+        font-size: 20px;
+        font-weight: bold;
+        letter-spacing: 2px;
+        height: 50px;
+        margin-top: 20px;
+    }
+    form .submit:hover {
+        background: #f44336;
+        cursor: pointer;
+    }
+    .bio {
+        width: 30%;
+        position: absolute;
+        top: 100px;
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+    }
+    .check {
+        position: absolute;
+        top: 80px;
+        color: rgba(218, 240, 27, 0.85);
+        display: inline-block;
+        font-weight: bold;
+    }
+    .check p {
+        float: right;
+    }
+}
